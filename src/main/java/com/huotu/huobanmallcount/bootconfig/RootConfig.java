@@ -10,6 +10,7 @@
 package com.huotu.huobanmallcount.bootconfig;
 
 import org.luffy.lib.libspring.data.ClassicsRepositoryFactoryBean;
+import org.luffy.lib.libspring.logging.LoggingConfig;
 import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -18,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Created by Administrator on 2015/8/19.
  */
 @Configuration
+@Import(LoggingConfig.class)
 @ComponentScan(value = {"com.huotu.huobanmallcount.service.impl" ,"com.huotu.huobanmallcount.concurrency"})
 @ImportResource(value = {"classpath:spring-jpa.xml"})
 @EnableJpaRepositories(value = {"com.huotu.huobanmallcount.repository"}, repositoryFactoryBeanClass = ClassicsRepositoryFactoryBean.class)
