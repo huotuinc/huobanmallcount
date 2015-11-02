@@ -1,0 +1,13 @@
+.project
+.classpath
+.springBeans
+.settings/
+target/
+
+#IntelliJ Stuff
+.idea
+*.iml
+
+*.log
+platform.log*
+iqiyi.log*
