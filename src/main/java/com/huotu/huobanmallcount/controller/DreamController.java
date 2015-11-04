@@ -12,12 +12,14 @@ package com.huotu.huobanmallcount.controller;
 import com.huotu.huobanmallcount.api.DreamSystem;
 import com.huotu.huobanmallcount.api.common.ApiResult;
 import com.huotu.huobanmallcount.api.common.Output;
+import com.huotu.huobanmallcount.concurrency.SystemCounting;
 import com.huotu.huobanmallcount.config.CommonEnum;
 import com.huotu.huobanmallcount.model.*;
 import com.huotu.huobanmallcount.repository.UserShareRebateSourceRepository;
 import com.huotu.huobanmallcount.repository.UserShareSourceRepository;
 import com.huotu.huobanmallcount.service.DreamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,6 +39,10 @@ public class DreamController implements DreamSystem {
 
     @Autowired
     private UserShareRebateSourceRepository userShareRebateSourceRepository;
+
+    @Qualifier(value = "SystemMonthCountingImpl")
+    @Autowired
+    private SystemCounting systemCounting;
 
     @Override
     @RequestMapping("/total")
@@ -127,4 +133,13 @@ public class DreamController implements DreamSystem {
         twoData.outputData(two.toArray(new DreamShareDetailModel[two.size()]));
         return ApiResult.resultWith(CommonEnum.AppCode.SUCCESS);
     }
+
+    @Override
+    @RequestMapping("/recount")
+    public ApiResult recount() {
+        systemCounting.countAll();
+        return ApiResult.resultWith(CommonEnum.AppCode.SUCCESS);
+    }
+
+
 }

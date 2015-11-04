@@ -135,5 +135,7 @@ public interface DreamSystem {
     @RequestMapping(method = RequestMethod.GET)
     ApiResult sharedetail(Output<DreamShareDetailModel[]> fiveData,Output<DreamShareDetailModel[]> twoData, Integer userId);
 
+    @RequestMapping(method = RequestMethod.GET)
+    ApiResult recount();
 
 }

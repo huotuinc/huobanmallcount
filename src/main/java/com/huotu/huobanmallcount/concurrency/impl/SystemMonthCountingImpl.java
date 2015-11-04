@@ -77,17 +77,22 @@ public class SystemMonthCountingImpl implements SystemCounting {
 
     @Scheduled(cron = "0 0 5 * * ?")
     public void countAll() {
-        Calendar calendar = Calendar.getInstance();
+        try {
+            Calendar calendar = Calendar.getInstance();
 
 
-        Calendar beginTime = Calendar.getInstance();
-        beginTime.set(2015, 10, 2, 0, 0, 0);//todo 10
-        beginTime.set(Calendar.MILLISECOND, 0);
+            Calendar beginTime = Calendar.getInstance();
+            beginTime.set(2015, 10, 2, 0, 0, 0);//todo 10
+            beginTime.set(Calendar.MILLISECOND, 0);
 
-        if (calendar.getTime().getTime() > beginTime.getTime().getTime())
-            countMerchant(3677);
-        else
-            log.info("还没有到11月1日呢");
+            if (calendar.getTime().getTime() > beginTime.getTime().getTime())
+                countMerchant(3677);
+            else
+                log.info("还没有到11月1日呢");
+        }catch (Exception ex)
+        {
+            log.error(ex);
+        }
     }
 
     public void countMerchant(int merchantId) {

@@ -22,11 +22,13 @@ import com.huotu.huobanmallcount.repository.MerchantRepository;
 import com.huotu.huobanmallcount.repository.OrderRepository;
 import com.huotu.huobanmallcount.repository.UserRepository;
 import com.huotu.huobanmallcount.repository.UserShareAmountedRepository;
+import junit.framework.Assert;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -432,5 +434,14 @@ public class SystemCountingImplTest extends TestCase {
         System.out.println(calendar1.getTime());
         System.out.println(calendar2.getTime());
         systemCounting.countAll();
+    }
+
+
+    @Repeat(3)
+    @Test
+    public void x1()
+    {
+
+
     }
 }
