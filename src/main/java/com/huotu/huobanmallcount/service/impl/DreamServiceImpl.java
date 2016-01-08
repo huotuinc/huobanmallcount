@@ -88,7 +88,7 @@ public class DreamServiceImpl implements DreamService {
         list.forEach(data -> {
             Object[] objects = (Object[]) data;
             User user = userRepository.findOne(Integer.parseInt(objects[0].toString()));
-            dreamTopModels.add(new DreamTopModel(StringUtils.isEmpty(user.getUserFace()) ? "" : resoureServerUrl + user.getUserFace()
+            dreamTopModels.add(new DreamTopModel(StringUtils.isEmpty(user.getWxHeadUrl()) ? "" : user.getWxHeadUrl()
                     , userService.getViewUserName(user)
                     , Float.parseFloat(objects[1].toString())));
         });
