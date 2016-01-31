@@ -680,7 +680,7 @@ public class SystemCountingImpl implements SystemCounting {
         treeNode.setCountedPercentFive(true);
         treeNode.setCountedPercentTwo(true);
         treeNode.setPercentFiveAmount(MathHelper.doFloat(percentFiveBaseAmount * 0.05F));
-        treeNode.setPercentTwoAmount(MathHelper.doFloat(percentTwoBaseAmount * 0.02F));
+        treeNode.setPercentTwoAmount(MathHelper.doFloat(percentTwoBaseAmount * 0.05F));
         treeNode.setUpPercentFiveAmount(upPercentFiveAmount);
         treeNode.setUpPercentTwoAmount(upPercentTwoAmount);
 

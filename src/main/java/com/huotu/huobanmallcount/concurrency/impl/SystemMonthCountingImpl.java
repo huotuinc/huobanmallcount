@@ -44,7 +44,7 @@ public class SystemMonthCountingImpl implements SystemCounting {
 
     //todo 上线替换
     //5%计算起始值
-    private float startAmount = 50000;//50000
+    private float startAmount = 6000;//50000
     //金额打折费率
     private float rate = 1;//0.94f
     //每月结算日 如1，代表1日
@@ -560,7 +560,7 @@ public class SystemMonthCountingImpl implements SystemCounting {
         treeNode.setCountedPercentFive(true);
         treeNode.setCountedPercentTwo(true);
         treeNode.setPercentFiveAmount(MathHelper.doFloat(percentFiveBaseAmount * 0.05F));
-        treeNode.setPercentTwoAmount(MathHelper.doFloat(percentTwoBaseAmount * 0.02F));
+        treeNode.setPercentTwoAmount(MathHelper.doFloat(percentTwoBaseAmount * 0.05F));
         treeNode.setUpPercentFiveAmount(upPercentFiveAmount);
         treeNode.setUpPercentTwoAmount(upPercentTwoAmount);
 
